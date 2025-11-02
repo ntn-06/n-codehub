@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.calc-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.calc-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.back-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    border: 2px solid white;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: white;
+    color: #667eea;
+}
+
+.calculator {
+    background: #2c3e50;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.display {
+    margin-bottom: 20px;
+}
+
+#result {
+    width: 100%;
+    height: 80px;
+    background: #34495e;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 2rem;
+    text-align: right;
+    padding: 0 20px;
+    outline: none;
+    transition: all 0.3s ease !important;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* CORES DOS BOTÕES */
+.btn.number {
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+.btn.number:hover {
+    background: #bdc3c7;
+}
+
+.btn.operator {
+    background: #e67e22;
+    color: white;
+}
+
+.btn.operator:hover {
+    background: #d35400;
+}
+
+.btn.clear {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn.clear:hover {
+    background: #c0392b;
+}
+
+.btn.equals {
+    background: #27ae60;
+    color: white;
+    grid-row: span 2;
+}
+
+.btn.equals:hover {
+    background: #229954;
+}
+
+/* BOTÃO ZERO MAIOR */
+.btn.zero {
+    grid-column: span 2;
+}
+
+/* CONFIGURAÇÕES DO DISPLAY */
+#result {
+    width: 100%;
+    height: 80px;
+    background: #34495e;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 2rem;
+    text-align: right;
+    padding: 0 20px;
+    outline: none;
+    transition: all 0.3s ease !important;
+    /* Permite quebra de linha para contas muito longas */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* EFEITO DE PULSO PARA RESULTADO (SEM COR - SÓ ANIMAÇÃO) */
+#result.result-display {
+    animation: pulse-green 0.5s ease-in-out !important;
+    /* Mantém a cor original, só o pulso */
+}
+
+/* EFEITO DE TREMBOR PARA ERRO (SEM COR - SÓ ANIMAÇÃO) */
+#result.error-display {
+    animation: shake 0.5s ease-in-out !important;
+    /* Mantém a cor original, só o tremor */
+}
+
+/* ANIMAÇÃO DE PULSO VERDE (APENAS ESCALA) */
+@keyframes pulse-green {
+    0% { 
+        transform: scale(1); 
+    }
+    50% { 
+        transform: scale(1.02); 
+    }
+    100% { 
+        transform: scale(1); 
+    }
+}
+
+/* ANIMAÇÃO DE TREMBOR PARA ERRO */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* RESPONSIVO - FONTES MENORES PARA TELAS PEQUENAS */
+@media (max-width: 480px) {
+    #result {
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
